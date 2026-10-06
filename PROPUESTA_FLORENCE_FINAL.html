@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLORENCE - Tienda Online</title>
+    <style>
+        :root {
+            --florence-cream: #FFFBF7;
+            --florence-beige: #E8DDD4;
+            --florence-gray: #D9D6D0;
+            --florence-rose: #D4A5A5;
+            --florence-wood: #A88E6B;
+            --text-primary: #1A1A1A;
+            --text-secondary: #52514E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--text-primary);
+            background: white;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--florence-beige) 0%, var(--florence-cream) 100%);
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 300;
+            font-family: Georgia, serif;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: var(--florence-wood);
+        }
+
+        header .subheader {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        header .fecha {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        section:nth-child(odd) {
+            background: rgba(212, 165, 165, 0.04);
+        }
+
+        section:nth-child(even) {
+            background: transparent;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--florence-rose);
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 20px 0 15px 0;
+            color: var(--text-primary);
+        }
+
+        p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .highlight-box {
+            background: var(--florence-cream);
+            border-left: 4px solid var(--florence-rose);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* BENEFICIOS */
+        .beneficios {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .beneficio {
+            background: white;
+            border: 2px solid var(--florence-rose);
+            padding: 25px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(212, 165, 165, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .beneficio:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 165, 165, 0.2);
+        }
+
+        .beneficio h4 {
+            margin: 0 0 12px 0;
+            color: var(--florence-rose);
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .beneficio p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* VERSUS COMPARATIVA */
+        .versus {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .versus-card {
+            background: white;
+            border: 2px solid var(--florence-gray);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            transition: all 0.2s;
+        }
+
+        .versus-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .versus-card.destacado {
+            border: 3px solid var(--florence-rose);
+            background: linear-gradient(135deg, var(--florence-cream) 0%, rgba(232, 221, 212, 0.5) 100%);
+            box-shadow: 0 4px 16px rgba(212, 165, 165, 0.15);
+        }
+
+        .versus-card h4 {
+            text-align: center;
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: var(--text-primary);
+        }
+
+        .versus-card .link {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .versus-card .link a {
+            color: var(--florence-rose);
+            font-size: 12px;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .versus-card .link a:hover {
+            text-decoration: underline;
+        }
+
+        .versus-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .versus-card li {
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid var(--florence-gray);
+            margin-left: 0;
+        }
+
+        .versus-card li:last-child {
+            border-bottom: none;
+        }
+
+        .vs-check {
+            color: #2d7c2d;
+            font-weight: 600;
+        }
+
+        .vs-cross {
+            color: #999;
+        }
+
+        /* INVERSION Y RETORNO */
+        .inversion-tabla {
+            background: white;
+            border: 2px solid var(--florence-rose);
+            padding: 30px;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+
+        .inversion-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--florence-gray);
+        }
+
+        .inversion-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .inversion-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .inversion-value {
+            font-size: 16px;
+            color: var(--florence-rose);
+            font-weight: 700;
+        }
+
+        .inversion-full {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: var(--florence-cream);
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .inversion-full .valor-grande {
+            font-size: 32px;
+            color: var(--florence-rose);
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        /* PRECIOS */
+        .precios {
+            background: linear-gradient(135deg, var(--florence-rose) 0%, var(--florence-wood) 100%);
+            padding: 50px 40px;
+            border-radius: 12px;
+            color: white;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(212, 165, 165, 0.3);
+        }
+
+        .precios h2 {
+            border-bottom-color: rgba(255,255,255,0.3);
+            color: white;
+        }
+
+        .precio-principal {
+            font-size: 52px;
+            font-weight: 700;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .precio-subtexto {
+            font-size: 14px;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 30px;
+        }
+
+        .precios-detalle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .precios-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .precios-item h4 {
+            color: white;
+            margin: 0 0 8px 0;
+            font-size: 15px;
+        }
+
+        .precios-item p {
+            color: rgba(255,255,255,0.95);
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .precio-nota {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.95);
+        }
+
+        /* QUE INCLUYE */
+        .incluye-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .incluye-item {
+            display: flex;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--florence-rose);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .incluye-check {
+            color: var(--florence-rose);
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .incluye-texto {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .incluye-texto strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* TIMELINE SIMPLE */
+        .timeline {
+            margin: 25px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--florence-gray);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-semana {
+            font-weight: 700;
+            color: var(--florence-rose);
+            font-size: 14px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .timeline-desc strong {
+            color: var(--text-primary);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--florence-gray);
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .beneficios, .versus, .incluye-grid, .precios-detalle {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            .precio-principal {
+                font-size: 40px;
+            }
+
+            .inversion-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FLORENCE</h1>
+            <div class="subheader">Tu tienda online en 1-2 semanas</div>
+            <div class="fecha">Octubre 2026</div>
+        </header>
+
+        <!-- BENEFICIOS PRINCIPALES -->
+        <section>
+            <h2>¿Qué ganas teniendo tienda online?</h2>
+
+            <div class="beneficios">
+                <div class="beneficio">
+                    <h4>🌍 Ventas en todo el país</h4>
+                    <p>No te limitás a Crespo. Tus clientes pueden estar en Buenos Aires, Córdoba, Santa Fe.</p>
+                </div>
+
+                <div class="beneficio">
+                    <h4>⏰ Ventas mientras dormís</h4>
+                    <p>La tienda vende 24/7. No dependés de estar en el local.</p>
+                </div>
+
+                <div class="beneficio">
+                    <h4>📱 Más conversión que Instagram</h4>
+                    <p>Un link a tu tienda vende mucho más que un post. La gente compra directo, sin ir al local.</p>
+                </div>
+
+                <div class="beneficio">
+                    <h4>📊 Datos que sirven</h4>
+                    <p>Ves qué se vende más, qué tamaños prefieren. Información para decidir qué comprar.</p>
+                </div>
+
+                <div class="beneficio">
+                    <h4>💪 Parecés grande</h4>
+                    <p>Una tienda online profesional te pone al nivel de marcas mucho más grandes.</p>
+                </div>
+
+                <div class="beneficio">
+                    <h4>✅ Seguís vendiendo en el local</h4>
+                    <p>La web no reemplaza el local. Los que vienen a probarse, luego compran online.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESCENARIOS SIMPLES -->
+        <section>
+            <h2>¿Cuánto podrías facturar?</h2>
+
+            <div class="highlight-box">
+                <p><strong>Escenario conservador (10 ventas/mes):</strong> $400.000 ARS mensuales = $4.800.000 ARS anuales.</p>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Escenario realista (25 ventas/mes):</strong> $1.000.000 ARS mensuales = $12.000.000 ARS anuales.</p>
+            </div>
+
+            <p>Esos números son conservadores. Vos ya tenés 8.400 seguidores en Instagram. Con solo decirles que podés vender online, la mitad compra.</p>
+        </section>
+
+        <!-- COMPARATIVA VERSUS -->
+        <section>
+            <h2>Vos vs La competencia</h2>
+
+            <div class="versus">
+                <div class="versus-card">
+                    <h4>📍 Filipa (local + web existente)</h4>
+                    <div class="link">
+                        <a href="https://filipa44.mitiendanube.com" target="_blank">filipa44.mitiendanube.com</a>
+                    </div>
+                    <ul>
+                        <li class="vs-check">✓ Local físico activo</li>
+                        <li class="vs-check">✓ Tienda web con catálogo</li>
+                        <li class="vs-check">✓ Promociones activas</li>
+                        <li class="vs-cross">✗ Muchos productos sin stock</li>
+                        <li class="vs-cross">✗ Catálogo no se actualiza</li>
+                    </ul>
+                </div>
+
+                <div class="versus-card destacado">
+                    <h4>🌟 FLORENCE (local + web)</h4>
+                    <div class="link">
+                        <a href="#" target="_blank">florencetienda.com (la tuya)</a>
+                    </div>
+                    <ul>
+                        <li class="vs-check">✓ Local + web</li>
+                        <li class="vs-check">✓ Vende 24/7</li>
+                        <li class="vs-check">✓ Alcance nacional</li>
+                        <li class="vs-check">✓ Personal + automatizado</li>
+                        <li class="vs-check">✓ 8.400 seguidores listos</li>
+                    </ul>
+                </div>
+
+                <div class="versus-card">
+                    <h4>🌐 Marilyn (local + web)</h4>
+                    <div class="link">
+                        <a href="https://marilynshop.mitiendanube.com" target="_blank">marilynshop.mitiendanube.com</a>
+                    </div>
+                    <ul>
+                        <li class="vs-check">✓ 2 locales + web</li>
+                        <li class="vs-check">✓ Vende mucho</li>
+                        <li class="vs-cross">✗ Compite en otra ciudad</li>
+                        <li class="vs-cross">✗ Más complicado</li>
+                        <li class="vs-cross">✗ Mayor inversión</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="margin-top: 25px;"><strong>El dato importante:</strong> Filipa tiene web, pero la tienda está semi-activa. Muchos productos sin stock, catálogo que no se actualiza. La web de Filipa se ve bonita pero no genera ventas porque no la mantiene actualizada. Vos podés hacerlo bien desde el principio.</p>
+        </section>
+
+        <!-- INVERSION Y RETORNO -->
+        <section>
+            <h2>La inversión y cómo la recuperás</h2>
+
+            <div class="inversion-tabla">
+                <div class="inversion-row">
+                    <div>
+                        <div class="inversion-label">Invertís una sola vez</div>
+                        <div class="inversion-value">$924.000 ARS</div>
+                    </div>
+                    <div>
+                        <div class="inversion-label">Costo mensual (Tienda Nube)</div>
+                        <div class="inversion-value">$77.000-108.000 ARS</div>
+                    </div>
+                </div>
+
+                <div class="inversion-row">
+                    <div>
+                        <div class="inversion-label">Mes 1 (10 ventas)</div>
+                        <div class="inversion-value">Facturás: $400.000 ARS</div>
+                    </div>
+                    <div>
+                        <div class="inversion-label">Mes 2-3 (25 ventas)</div>
+                        <div class="inversion-value">Facturás: $1.000.000 ARS</div>
+                    </div>
+                </div>
+
+                <div class="inversion-full">
+                    <div style="font-size: 16px; color: var(--text-primary);">Con solo 10 ventas/mes recuperás tu inversión en:</div>
+                    <div class="valor-grande">2-3 semanas</div>
+                    <div style="font-size: 13px; color: var(--text-secondary);">Después todo es ganancia.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUE INCLUYE -->
+        <section>
+            <h2>¿Qué te damos?</h2>
+
+            <div class="incluye-grid">
+                <div class="incluye-item">
+                    <div class="incluye-check">✓</div>
+                    <div class="incluye-texto"><strong>Cuenta Tienda Nube</strong> configurada y lista</div>
+                </div>
+
+                <div class="incluye-item">
+                    <div class="incluye-check">✓</div>
+                    <div class="incluye-texto"><strong>Dominio personalizado</strong> (florencetienda.com o similar)</div>
+                </div>
+
+                <div class="incluye-item">
+                    <div class="incluye-check">✓</div>
+                    <div class="incluye-texto"><strong>Diseño adaptado</strong> a tus colores y estilo</div>
+                </div>
+
+                <div class="incluye-item">
+                    <div class="incluye-check">✓</div>
+                    <div class="incluye-texto"><strong>Mercado Pago integrado</strong> para recibir pagos</div>
+                </div>
+
+                <div class="incluye-item">
+                    <div class="incluye-check">✓</div>
+                    <div class="incluye-texto"><strong>Capacitación 1 a 1</strong> sobre cómo funciona</div>
+                </div>
+
+                <div class="incluye-item">
+                    <div class="incluye-check">✓</div>
+                    <div class="incluye-texto"><strong>Lanzamiento</strong> en 1-2 semanas</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Aclaración importante:</strong> Vos podés subir los productos (fotos, precios, descripciones). Tienda Nube lo hace muy simple. Si preferís que lo hagamos nosotros:</p>
+                <p style="margin-top: 10px; margin-bottom: 0;"><strong>Servicio de carga de catálogo:</strong> $20.000 ARS/hora (típicamente 4-5 horas para 50 prendas). También disponible para cambios y asesoría general.</p>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section>
+            <h2>Cómo funciona</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-semana">Semana 1</div>
+                    <div class="timeline-desc"><strong>Setup:</strong> Creamos la tienda, dominio, diseño, pagos. Vos empezás a subir productos.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-semana">Semana 2</div>
+                    <div class="timeline-desc"><strong>Testing:</strong> Pruebas de compra. Ajustes finales. La tienda va live.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-semana">Semana 3+</div>
+                    <div class="timeline-desc"><strong>Venta:</strong> La tienda vende. Vos cambias precios, agregás productos, manejás todo vos.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRECIOS -->
+        <section class="precios">
+            <h2>Esto te cuesta</h2>
+
+            <div class="precio-principal">$924.000</div>
+            <div class="precio-subtexto">Una sola vez. Setup completo.</div>
+
+            <div class="precios-detalle">
+                <div class="precios-item">
+                    <h4>Opción 1: Pago completo</h4>
+                    <p>$924.000 ARS. Todo de una vez.</p>
+                </div>
+
+                <div class="precios-item">
+                    <h4>Opción 2: En cuotas</h4>
+                    <p>3 cuotas de $308.000 ARS (sin interés).</p>
+                </div>
+
+                <div class="precios-item">
+                    <h4>Costo mensual (Tienda Nube)</h4>
+                    <p>$77.000-108.000 ARS según el plan. Vos pagas directo a la plataforma.</p>
+                </div>
+
+                <div class="precios-item">
+                    <h4>Soporte después (opcional)</h4>
+                    <p>$30.800 ARS/hora si necesitás cambios o asesoría.</p>
+                </div>
+            </div>
+
+            <div class="precio-nota">
+                <strong>En dólares:</strong> $600 USD el setup inicial (cotización $1.540 ARS/USD). Podés pagar en pesos o dólares.
+            </div>
+        </section>
+
+        <!-- PREGUNTAS -->
+        <section>
+            <h2>Preguntas frecuentes</h2>
+
+            <h3>¿Es difícil usar Tienda Nube?</h3>
+            <p>No. Es como publicar en Instagram. En media hora entendés todo. La plataforma está hecha para pymes sin conocimiento técnico.</p>
+
+            <h3>¿Y si necesito cambios después?</h3>
+            <p>Vos podés cambiar todo: precios, fotos, promociones. Si necesitás algo más complicado, disponible a $30.800/hora.</p>
+
+            <h3>¿Cuánto tiempo lleva llenar el catálogo?</h3>
+            <p>Con 50 prendas, unas 4-5 horas. Podés hacerlo gradualmente, no todo de una vez.</p>
+
+            <h3>¿Es seguro? ¿Los clientes pueden comprar confiado?</h3>
+            <p>Sí. Tienda Nube es profesional, con encriptación y protección de datos. Mercado Pago es lo mismo que usa Media Markt, Carrefour, etc.</p>
+
+            <h3>¿Cómo recibo la plata?</h3>
+            <p>Mercado Pago transfiere a tu cuenta bancaria. Vos ves todo en tiempo real.</p>
+
+            <h3>¿Qué pasa si después quiero cambiar de plataforma?</h3>
+            <p>En cualquier momento podés migrar a otra solución. Tus datos son tuyos.</p>
+        </section>
+
+        <div class="footer">
+            <p>Propuesta preparada por Belén Hirschfeld | Octubre 2026</p>
+        </div>
+    </div>
+</body>
+</html>

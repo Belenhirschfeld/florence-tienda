@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLORENCE - Propuesta Tienda Online</title>
+    <style>
+        :root {
+            --florence-cream: #FFFBF7;
+            --florence-beige: #E8DDD4;
+            --florence-gray: #D9D6D0;
+            --florence-rose: #D4A5A5;
+            --florence-wood: #A88E6B;
+            --text-primary: #1A1A1A;
+            --text-secondary: #52514E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-primary);
+            background: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--florence-beige) 0%, var(--florence-cream) 100%);
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 300;
+            font-family: Georgia, serif;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: var(--florence-wood);
+        }
+
+        header p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        header .subheader {
+            font-size: 18px;
+            color: var(--text-primary);
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        header .date {
+            font-size: 12px;
+            color: var(--florence-rose);
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--florence-rose);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--florence-rose);
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .highlight-box {
+            background: var(--florence-cream);
+            border-left: 4px solid var(--florence-rose);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .spec-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .spec-item {
+            background: var(--florence-cream);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--florence-gray);
+        }
+
+        .spec-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--florence-rose);
+        }
+
+        .spec-item span {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* BENEFICIOS SECTION */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            border: 2px solid var(--florence-rose);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .benefit-card .emoji {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card h4 {
+            margin-top: 0;
+            color: var(--florence-rose);
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* COMPARATIVA */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .comparison-card {
+            background: white;
+            border: 1px solid var(--florence-gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .comparison-card.highlight {
+            border: 3px solid var(--florence-rose);
+            background: var(--florence-cream);
+        }
+
+        .comparison-card h4 {
+            text-align: center;
+            margin-top: 0;
+            color: var(--text-primary);
+            font-size: 18px;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            margin: 15px 0;
+            padding: 0;
+        }
+
+        .comparison-card li {
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid var(--florence-gray);
+            margin-left: 0;
+        }
+
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-card li.check {
+            color: #2d7c2d;
+            font-weight: 600;
+        }
+
+        .comparison-card li.cross {
+            color: #999;
+        }
+
+        /* MARKET ANALYSIS */
+        .market-box {
+            background: var(--florence-beige);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .market-box h4 {
+            margin-top: 0;
+        }
+
+        .roi-calculation {
+            background: white;
+            border: 2px solid var(--florence-rose);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .roi-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--florence-gray);
+        }
+
+        .roi-row:last-child {
+            border-bottom: none;
+        }
+
+        .roi-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .roi-value {
+            font-size: 16px;
+            color: var(--florence-rose);
+            font-weight: 600;
+        }
+
+        /* PRICING - AL FINAL */
+        .pricing-section {
+            background: linear-gradient(135deg, var(--florence-rose) 0%, var(--florence-wood) 100%);
+            padding: 40px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .pricing-section h2 {
+            border-bottom-color: rgba(255,255,255,0.3);
+            color: white;
+        }
+
+        .price-highlight {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .price-subtext {
+            font-size: 14px;
+            margin: 10px 0;
+            opacity: 0.95;
+        }
+
+        .pricing-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-detail-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .pricing-detail-card h4 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .pricing-detail-card p {
+            color: rgba(255,255,255,0.95);
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .pesos-conversion {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--florence-gray);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-week {
+            font-weight: 600;
+            color: var(--florence-rose);
+        }
+
+        .timeline-content {
+            background: var(--florence-cream);
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .timeline-content h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--florence-rose);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            background: #c89595;
+        }
+
+        .cta-button.white {
+            background: white;
+            color: var(--florence-rose);
+            border: 2px solid white;
+        }
+
+        .cta-button.white:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .footnote {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--florence-gray);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid, .comparison, .pricing-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .spec-list {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            .price-highlight {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p>Propuesta de proyecto</p>
+            <h1>FLORENCE</h1>
+            <div class="subheader">Tu tienda online en 1-2 semanas</div>
+            <div class="badge">SOLUCIÓN RÁPIDA Y ACCESIBLE</div>
+            <div class="date">Octubre 2026</div>
+        </header>
+
+        <!-- BENEFICIOS PRINCIPALES - ENTRA PRIMERO -->
+        <section>
+            <h2>✨ Por qué necesitas una tienda online AHORA</h2>
+            <p>En Crespo, la mayoría de negocios de moda venden presencial. Pero te estás perdiendo: clientes que no pasan por el local, ventas 24/7, y la posibilidad de crecer fuera de la ciudad.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="emoji">🌍</div>
+                    <h4>Alcance nacional</h4>
+                    <p>Vende en todo el país sin moverte. Clientes de Buenos Aires, Córdoba, Santa Fe comprando tus prendas.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="emoji">⏰</div>
+                    <h4>Ventas 24/7</h4>
+                    <p>Mientras duermes, la tienda vende. No depende de que estés presente en el local.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="emoji">📱</div>
+                    <h4>Crece sin límites</h4>
+                    <p>Agrega productos sin restricción. Categorías, filtros, búsqueda. Los clientes encuentran lo que quieren.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="emoji">💪</div>
+                    <h4>Compite con grandes</h4>
+                    <p>Parecer una tienda profesional online te pone al mismo nivel que marcas más grandes.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="emoji">📊</div>
+                    <h4>Datos en tiempo real</h4>
+                    <p>Sabe qué prendas se venden más, qué tamaños prefieren, quién compra. Datos para decidir mejor.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="emoji">🎯</div>
+                    <h4>Marketing fácil</h4>
+                    <p>Compartir un link de tu tienda es 10x más fácil que promocionar en Instagram. Tus followers compran con un click.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANÁLISIS DE MERCADO LOCAL -->
+        <section>
+            <h2>📈 ¿Cuánto podrías ganar realmente?</h2>
+
+            <div class="market-box">
+                <h4>Escenario conservador (10 ventas/mes online)</h4>
+                <ul>
+                    <li><strong>Ticket promedio:</strong> $40.000 ARS (mezcla remeras, pantalones, buzos)</li>
+                    <li><strong>Ventas mensuales:</strong> $400.000 ARS</li>
+                    <li><strong>Anual:</strong> $4.800.000 ARS adicionales (¡SIN contar local!)</li>
+                </ul>
+            </div>
+
+            <div class="market-box">
+                <h4>Escenario realista (25 ventas/mes online)</h4>
+                <ul>
+                    <li><strong>Después de 2-3 meses:</strong> La gente se entera que venden online</li>
+                    <li><strong>Ventas mensuales:</strong> $1.000.000 ARS</li>
+                    <li><strong>Anual:</strong> $12.000.000 ARS en ingresos adicionales</li>
+                </ul>
+            </div>
+
+            <p style="margin-top: 20px;"><strong>Contexto:</strong> Con precios de FLORENCE ($40.000 ARS promedio), son números reales y alcanzables. Competencia local como Filipa Indumentaria y cadenas nacionales como Marilyn ya venden en internet. FLORENCE tiene ventaja clara: comunidad local fuerte en Instagram (8.434 seguidores) + local físico + precios premium = conversión rápida.</p>
+        </section>
+
+        <!-- COMPARATIVA COMPETITIVA -->
+        <section>
+            <h2>🏪 Cómo te compararías con la competencia</h2>
+            <p>Hoy hay dos tipos de competencia:</p>
+
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h4>📍 Solo venta local (Filipa)</h4>
+                    <ul>
+                        <li class="check">✓ Local físico atractivo</li>
+                        <li class="check">✓ Personal para asesorar</li>
+                        <li class="check">✓ Pruebas en vivo</li>
+                        <li class="cross">✗ Limitado a Crespo</li>
+                        <li class="cross">✗ Horarios fijos (no vende mientras duermes)</li>
+                        <li class="cross">✗ Alcance máximo = local</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card highlight">
+                    <h4>🌟 FLORENCE Híbrida (RECOMENDADO)</h4>
+                    <ul>
+                        <li class="check">✓ Local lleno de gente</li>
+                        <li class="check">✓ + Tienda web 24/7</li>
+                        <li class="check">✓ Vende en Crespo y en todo el país</li>
+                        <li class="check">✓ Clientes prueban local, compran online</li>
+                        <li class="check">✓ 8.400+ seguidores listos para comprar</li>
+                        <li class="check">✓ Ganas ambos mercados</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card">
+                    <h4>🌐 Local + web (Marilyn - modelo exitoso)</h4>
+                    <ul>
+                        <li class="check">✓ 2 locales en peatonal (Paraná) + web</li>
+                        <li class="check">✓ Vende MUCHO tanto local como online</li>
+                        <li class="check">✓ Presencia física genera confianza</li>
+                        <li class="cross">✗ Compite en otra ciudad (Paraná)</li>
+                        <li class="cross">✗ Más complejo de manejar 2 locales</li>
+                        <li class="cross">✗ Mayor inversión inicial</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Tu ventaja sobre Marilyn:</strong> Ellos tienen 2 locales en Paraná + web (modelo que funciona pero es complejo). Vos ya tenés 1 local lleno en Crespo. Solo necesitas agregar la web. Es el setup perfecto: menos complicado que Marilyn, más rentable que Filipa.
+            </div>
+        </section>
+
+        <!-- CÁLCULO DE ROI -->
+        <section>
+            <h2>💰 Regresa tu inversión en semanas</h2>
+
+            <div class="roi-calculation">
+                <h3 style="margin-top: 0; color: var(--florence-rose);">Proyección de retorno</h3>
+
+                <div class="roi-row">
+                    <div>
+                        <div class="roi-label">Setup inicial (todo incluido)</div>
+                        <div class="roi-value">$600 USD (~$924.000 ARS*)</div>
+                    </div>
+                    <div>
+                        <div class="roi-label">Costo mensual (Tienda Nube + soporte)</div>
+                        <div class="roi-value">$50-70 USD (~$77.000-108.000 ARS/mes)</div>
+                    </div>
+                </div>
+
+                <div class="roi-row">
+                    <div>
+                        <div class="roi-label">Primer mes (escenario conservador)</div>
+                        <div class="roi-value">10 ventas = $400.000 ARS</div>
+                    </div>
+                    <div>
+                        <div class="roi-label">Mes 2-3 (después se corre la voz)</div>
+                        <div class="roi-value">20-30 ventas = $800.000-1.200.000 ARS</div>
+                    </div>
+                </div>
+
+                <div class="roi-row">
+                    <div style="grid-column: 1/-1;">
+                        <div class="roi-label" style="margin-bottom: 10px;">⏱️ RECUPERAS TU INVERSIÓN EN:</div>
+                        <div class="roi-value" style="font-size: 28px;">2-3 semanas</div>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin-top: 5px;">Con solo 5-10 ventas mensuales ya recuperas y empiezas a ganar.</p>
+                    </div>
+                </div>
+
+                <div class="pesos-conversion">
+                    <strong>*Conversión referencial:</strong> $1 USD = $1.540 ARS (cotización oficial BCRA octubre 5, 2026). El pago se puede hacer en cuotas o en pesos.
+                </div>
+            </div>
+        </section>
+
+        <!-- QUÉ INCLUYE -->
+        <section>
+            <h2>📦 Qué recibirás exactamente</h2>
+
+            <h3>Setup completo (Semanas 1-2)</h3>
+            <ul>
+                <li>✓ Cuenta Tienda Nube configurada y activada</li>
+                <li>✓ Dominio personalizado (florencetienda.com o similar)</li>
+                <li>✓ Diseño adaptado a paleta FLORENCE (colores, estilo minimalista elegante)</li>
+                <li>✓ Integración Mercado Pago lista para recibir pagos</li>
+                <li>✓ Métodos de envío configurados</li>
+                <li>✓ Capacitación 1-a-1 (cómo subir productos, gestionar órdenes, promociones)</li>
+                <li>✓ Soporte inicial (primeras 2 semanas respuesta rápida si hay dudas)</li>
+            </ul>
+
+            <h3>Después del lanzamiento</h3>
+            <ul>
+                <li>✓ La tienda es 100% tuya. No depende de mí.</li>
+                <li>✓ Puedes cambiar precios, agregar productos, crear promociones cuando quieras.</li>
+                <li>✓ Soporte técnico disponible a $20 USD/hora si necesitas asesoría o cambios (opcional).</li>
+                <li>✓ Puedes integrar Instagram Shop, catálogos dinámicos, etc. después.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Nota importante:</h4>
+                <p>La subida del catálogo inicial (fotos de cada prenda, descripción, precio, tallas) corre por tu cuenta. Tienda Nube lo hace muy simple (es un formulario en la plataforma). Si necesitas ayuda, disponible a $20 USD/hora.</p>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section>
+            <h2>📅 Timeline de implementación</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 1</div>
+                    <div class="timeline-content">
+                        <h4>Setup inicial</h4>
+                        <p>Creamos cuenta Tienda Nube, configuramos dominio, diseño y pagos. Tú comenzás a subir primeros productos.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 2</div>
+                    <div class="timeline-content">
+                        <h4>Testing y go-live</h4>
+                        <p>Revisamos que todo funcione. Haces primeras pruebas de compra. La tienda va live. Capacitación final.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 3+</div>
+                    <div class="timeline-content">
+                        <h4>Operación</h4>
+                        <p>¡A vender! Tienda online operando 24/7. Tú gestión as órdenes, precios, nuevas prendas cuando quieras.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREGUNTAS FRECUENTES -->
+        <section>
+            <h2>❓ Preguntas frecuentes</h2>
+
+            <h3>¿Es difícil usar Tienda Nube?</h3>
+            <p>No. La plataforma está diseñada para pymes sin conocimiento técnico. Subir un producto es como crear un post en Instagram. En 30 minutos entiendes cómo funciona todo.</p>
+
+            <h3>¿Y si quiero hacer cambios después?</h3>
+            <p>Puedes cambiar todo vos mismo: precios, fotos, descripciones, promociones. Si necesitas algo más complejo (cambios de diseño, integraciones), disponible a $20 USD/hora.</p>
+
+            <h3>¿Cuánto tiempo lleva llenar el catálogo?</h3>
+            <p>Depende de cuántos productos tengas. Con 50 prendas, unas 4-5 horas trabajando a ritmo cómodo. Se puede hacer gradualmente, no todo de una vez.</p>
+
+            <h3>¿Es seguro? ¿Protege datos de clientes?</h3>
+            <p>Sí. Tienda Nube es plataforma profesional con certificación SSL, encriptación de datos, y cumple con protección de información. Tus clientes compran con seguridad.</p>
+
+            <h3>¿Qué pasa con los pagos? ¿Cómo recibo la plata?</h3>
+            <p>Mercado Pago recibe los pagos y los transfiere a tu cuenta bancaria. Vos controlas cuándo y cómo. Las comisiones de Mercado Pago (2.9% + $0.30) las paga el cliente o vos según elijas.</p>
+
+            <h3>¿Puedo cambiar a una tienda web 100% personalizada después?</h3>
+            <p>Sí. Tienda Nube es paso 1. Si crecés y querés más features (wishlist avanzada, AI recomendaciones, app propia), podemos migrar a solución 100% customizada después. Pero honestamente, para la mayoría de casos Tienda Nube alcanza y sobra.</p>
+        </section>
+
+        <!-- PRICING - AL FINAL -->
+        <section class="pricing-section">
+            <h2>💎 La inversión</h2>
+
+            <p style="color: rgba(255,255,255,0.9); font-size: 16px; margin: 20px 0;">Después de analizar todo lo que ganás, acá va el costo:</p>
+
+            <div class="price-highlight">$600 USD</div>
+
+            <p class="price-subtext">Inversión única (one-time)</p>
+            <p class="price-subtext">Setup completo, customización, capacitación y lanzamiento</p>
+
+            <div class="pricing-detail">
+                <div class="pricing-detail-card">
+                    <h4>✓ Setup Tienda Nube</h4>
+                    <p>Cuenta, configuración, dominio, diseño personalizado</p>
+                </div>
+
+                <div class="pricing-detail-card">
+                    <h4>✓ Integración Mercado Pago</h4>
+                    <p>Sistema de pagos 100% operativo</p>
+                </div>
+
+                <div class="pricing-detail-card">
+                    <h4>✓ Capacitación 1-a-1</h4>
+                    <p>Training inicial y acompañamiento go-live</p>
+                </div>
+
+                <div class="pricing-detail-card">
+                    <h4>✓ Soporte 2 semanas</h4>
+                    <p>Respuesta rápida si hay dudas post-lanzamiento</p>
+                </div>
+            </div>
+
+            <h3 style="color: white; border-bottom-color: rgba(255,255,255,0.3);">Costos recurrentes (cliente paga a Tienda Nube)</h3>
+
+            <div class="pricing-detail">
+                <div class="pricing-detail-card">
+                    <h4>Plan básico: $39 USD/mes</h4>
+                    <p>Hasta 100 productos, sin límite de ordenes. Ideal para empezar.</p>
+                </div>
+
+                <div class="pricing-detail-card">
+                    <h4>Plan profesional: $69 USD/mes</h4>
+                    <p>Productos ilimitados, reportes avanzados, integraciones. Si creces.</p>
+                </div>
+            </div>
+
+            <div class="pesos-conversion">
+                <strong>En pesos locales:</strong><br/>
+                • Setup inicial: ~$924.000 ARS (puede dividirse en 2-3 cuotas)<br/>
+                • Mensual: ~$77.000-108.000 ARS (según plan)
+            </div>
+
+            <h3 style="color: white; border-bottom-color: rgba(255,255,255,0.3); margin-top: 30px;">Soporte post-lanzamiento (opcional)</h3>
+            <p style="color: rgba(255,255,255,0.9);">$20 USD/hora (~$30.800 ARS/hora)</p>
+            <p style="font-size: 13px; color: rgba(255,255,255,0.85);">Para cambios, asesoría, o si necesitas ayuda con features avanzadas. Totalmente opcional — muchos clientes no lo necesitan.</p>
+
+            <a href="#" class="cta-button white" style="margin-top: 30px;">Quiero implementar esta solución</a>
+        </section>
+
+        <!-- PRÓXIMOS PASOS -->
+        <section>
+            <h2>🚀 Próximos pasos</h2>
+
+            <h3>Si te parece que esta solución le viene bien a FLORENCE:</h3>
+            <ol>
+                <li><strong>Confirma:</strong> ¿Te cierra la estrategia? ¿Algún cambio?</li>
+                <li><strong>Prepara el catálogo:</strong> Necesitamos fotos de tus prendas (alta res), precios y descripciones en un archivo Excel.</li>
+                <li><strong>Datos clave:</strong> Métodos de envío que usas, horarios, info de contacto.</li>
+                <li><strong>Activamos:</strong> Dentro de 48hs creamos la tienda y empezamos setup.</li>
+                <li><strong>Lanzamos:</strong> En 1-2 semanas está viva y generando ventas.</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>Timing:</strong> Es el mejor momento. Ya está llegando temporada de compras, tu Instagram está activo, y podés empezar a promocionar la tienda. En octubre todavía hay tiempo para capturar ventas de fin de año.
+            </div>
+        </section>
+
+        <div class="footnote">
+            <p><strong>Propuesta preparada por Claude Code | Octubre 2026</strong><br/>Esta propuesta es válida por 30 días. Precios en USD pueden variar según cotización de ese día.</p>
+        </div>
+    </div>
+</body>
+</html>
